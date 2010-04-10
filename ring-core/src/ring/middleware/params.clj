@@ -1,7 +1,22 @@
 (ns ring.middleware.params
   "Parse form and query params."
-  (:require (clojure.contrib [str-utils :as str] [duck-streams :as duck])
-            (ring.util [codec :as codec])))
+  (:require (clojure.contrib [str-utils :as str])
+            (ring.util [codec :as codec]))
+  (:import (java.io InputStreamReader BufferedReader InputStream)))
+
+;; from duck-streams without any offensive classes
+(defn reader InputStream [#^InputStream x]
+  (BufferedReader. (InputStreamReader. x "UTF-8")))
+
+(defn #^String slurp*
+  [f]
+  (with-open [#^BufferedReader r (reader f)]
+    (let [sb (StringBuilder.)]
+      (loop [c (.read r)]
+	(if (neg? c)
+	  (str sb)
+	  (do (.append sb (char c))
+	      (recur (.read r))))))))
 
 (defn assoc-param
   "Associate a key with a value. If the key already exists in the map,
@@ -47,7 +62,7 @@
   [request encoding]
   (merge-with merge request
     (if-let [body (and (urlencoded-form? request) (:body request))]
-      (let [params (parse-params (duck/slurp* body) encoding)]
+      (let [params (parse-params (slurp* body) encoding)]
         {:form-params params, :params params})
       {:form-params {}, :params {}})))
 
