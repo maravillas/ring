@@ -1,10 +1,25 @@
 (ns ring.util.servlet
   "Compatibility functions for turning a ring handler into a Java servlet."
-  (:use (clojure.contrib duck-streams except))
-  (:import (java.io File InputStream FileInputStream)
+  (:use (clojure.contrib except))
+  (:import (java.io File InputStream OutputStream FileInputStream)
            (javax.servlet.http HttpServlet
                                HttpServletRequest
                                HttpServletResponse)))
+
+(def
+ #^{:doc "Size, in bytes or characters, of the buffer used when
+  copying streams."}
+ *buffer-size* 1024)
+
+;; from duck-streams
+(defn copy [#^InputStream input #^OutputStream output]
+  (let [buffer (make-array Byte/TYPE *buffer-size*)]
+    (loop []
+      (let [size (.read input buffer)]
+        (when (pos? size)
+          (do (.write output buffer 0 size)
+              (recur)))))))
+
 
 (defn- get-headers
   "Creates a name/value map of all the request headers."
