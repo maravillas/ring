@@ -2,7 +2,7 @@
 
 ONLY USE THIS BRANCH IF YOU ARE WORKING ON THE GOOGLE APPENGINE AND ARE ENCOUNTERING EXCEPTIONS LINKED TO THE USE OF JAVA CLASSES NOT ON THE GAE WHITELIST (e.g., restricted classes such as java.rmi.server.UID or java.net.Socket).
 
-If you are looking for ring, go to http://github.com/mmcgrana/ring.
+If you are looking for ring, go to [GitHub page]http://github.com/mmcgrana/ring.
 
 This branch is essentially identical to the master branch of Ring except that I am removing any offending references to Java classes as I encounter exceptions (e.g., references to duck-streams which have multimethods for sockets).
 
