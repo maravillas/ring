@@ -1,18 +1,17 @@
-(defproject ring "0.2.0"
-  :description "A Clojure web applications library."
-  :url "http://github.com/mmcgrana/ring"
+(defproject ring-gae "0.2.0"
+  :description "A Clojure web applications library adapted for Google AppEngine. See  http://github.com/mmcgrana/ring for original and http://github.com/jeandenis/ring for GAE compatible version."
   :dependencies
-    [[ring/ring-core "0.2.0"]
-     [ring/ring-devel "0.2.0"]
-     [ring/ring-httpcore-adapter "0.2.0"]
-     [ring/ring-jetty-adapter "0.2.0"]
-     [ring/ring-servlet "0.2.0"]]
+    [[ring-gae/ring-core-gae "0.2.0"]
+     [ring-gae/ring-devel-gae "0.2.0"]
+     [ring-gae/ring-httpcore-adapter-gae "0.2.0"]
+     [ring-gae/ring-jetty-adapter-gae "0.2.0"]
+     [ring-gae/ring-servlet-gae "0.2.0"]]
   :dev-dependencies
     [[autodoc "0.7.0"]
      [lein-clojars "0.5.0"]]
   :autodoc
-    {:name "Ring"
-     :description "A Clojure web applications library"
+    {:name "Ring (adapted for GAE)"
+     :description "A Clojure web applications library (adapted for GAE)"
      :copyright "Copyright 2009-2010 Mark McGranaghan"
      :root "."
      :source-path ""

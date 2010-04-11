@@ -1,3 +1,28 @@
+# Modifications to Ring for Google AppEngine Whitelist/Blacklist Compliance
+
+ONLY USE THIS BRANCH IF YOU ARE WORKING ON THE GOOGLE APPENGINE AND ARE ENCOUNTERING EXCEPTIONS LINKED TO THE USE OF JAVA CLASSES NOT ON THE GAE WHITELIST (e.g., restricted classes such as java.rmi.server.UID or java.net.Socket).
+
+If you are looking for ring, go to http://github.com/mmcgrana/ring.
+
+This branch is essentially identical to the master branch of Ring except that I am removing any offending references to Java classes as I encounter exceptions (e.g., references to duck-streams which have multimethods for sockets).
+
+To use ring-gae, add the following to your Leiningen project dependencies:
+
+    [ring-gae/ring-core "0.2.0"]
+    [ring-gae/ring-core-httpcore-adapter-gae "0.2.0"]
+    [ring-gae/ring-core-jetty-adapter-gae "0.2.0"]
+    [ring-gae/ring-core-servlet-gae "0.2.0"]
+
+and
+
+    [ring-gae/ring-devel-gae "0.2.0"]
+
+Use 
+
+    [ring-gae "0.2.0"] 
+
+to include everything.
+
 # Ring
 
 Ring is a Clojure web applications library inspired by Python's WSGI and Ruby's Rack. By abstracting the details of HTTP into a simple, unified API, Ring allows web applications to be constructed of modular components that can be shared among a variety of applications, web servers, and web frameworks.
@@ -85,16 +110,6 @@ To see a more sophisticated Ring app, run:
 ### ring-httpcore-adapter
 
 * `ring.adapter.httpcore`: Adapter for the Apache HttpCore webserver. 
-
-## Leiningen Usage
-
-To include one of the above libraries in your Leiningen project, for example `ring-core`, add the following to your `:dependences`:
-
-    [ring/ring-core "0.2.0"]
-
-To include all of them, add:
-
-    [ring/ring "0.2.0"]
 
 ## Development
 
