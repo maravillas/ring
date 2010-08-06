@@ -1,10 +1,10 @@
 (ns ring.util.servlet
   "Compatibility functions for turning a ring handler into a Java servlet."
-  (:use (clojure.contrib.except :only (throwf)))
-  (:import (java.io File InputStream OutputStream FileInputStream)
-           (javax.servlet.http HttpServlet
-                               HttpServletRequest
-                               HttpServletResponse)))
+  (:use [clojure.contrib.except :only [throwf]])
+  (:import [java.io File InputStream OutputStream FileInputStream]
+           [javax.servlet.http HttpServlet
+	                       HttpServletRequest
+	                       HttpServletResponse]))
 
 (def
  #^{:doc "Size, in bytes or characters, of the buffer used when
