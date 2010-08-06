@@ -1,3 +1,34 @@
+## 0.2.5 (2010-07-06)
+
+* Hopefully the last flash middleware fix we'll need
+* Added ring.util.response/resource-response function
+
+## 0.2.4 (2010-07-04)
+
+* Fixed race condition in file-info middleware date parsing
+* Forced US locale for file-info middleware date parsing
+* Fixed NPE in multipart-params middleware when field is nil
+* Fixed another flash middleware bug that was wiping out session data
+
+## 0.2.3 (2010-06-17)
+
+* Code updated to be more Clojure 1.2 compatible
+* Fixed bug in r.m.flash that was wiping out the session
+* Added If-Modified-Since support to r.m.file-info
+* Added ring.util.response/header
+* Added :root key to r.m.session as a shortcut to cookie path attribute
+* Updated ring-devel to use Hiccup instead of clj-html
+* Session cookie attributes can now be set by adding a :session-cookie-attrs key to the response.
+
+## 0.2.2 (2010-05-16)
+
+* Introduce middleware for session flash
+* Cookie middleware made to work for browsers that don't follow cookie RFC (which is most of them)
+
+## 0.2.1 (2010-05-05)
+
+* Depend on javax.servlet instead of org.mortbay.jetty for Servlet API artifact
+
 ## 0.2.0 (2010-03-28)
 
 * Distribute Ring as separate Maven artifacts: `ring-core`, `ring-servlet`, `ring-devel`, `ring-jetty-adapter`, and `ring-http-core-adapter`

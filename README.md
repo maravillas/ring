@@ -34,12 +34,12 @@ The `SPEC` file at the root of this distribution for provides a complete descrip
 "Hello World" in Ring:
 
     (use 'ring.adapter.jetty)
-    
+
     (defn app [req]
       {:status  200
        :headers {"Content-Type" "text/html"}
        :body    "Hello World from Ring"})
-    
+
     (run-jetty app {:port 8080})
 
 Adding simple middleware:
@@ -48,9 +48,9 @@ Adding simple middleware:
       (fn [req]
         (let [orig-resp (app req)]
           (assoc orig-resp :body (.toUpperCase (:body orig-resp))))))
-    
+
     (def upcase-app (wrap-upcase app))
-    
+
     (run-jetty upcase-app {:port 8080})
 
 ## Quick Start
@@ -87,9 +87,10 @@ To see a more sophisticated Ring app, run:
 * `ring.middleware.file-info`: Augment response headers with info about File responses.
 * `ring.middleware.params`: Parse query and form params.
 * `ring.middleware.multipart-params`: Parse multipart params.
-* 'ring.middleware.keyword-params`: Convert string param keys to keywords.
+* `ring.middleware.keyword-params`: Convert string param keys to keywords.
 * `ring.middleware.cookies`: Manage browser cookies.
 * `ring.middleware.session`: Manage user sessions. Memory and cookie session stores are available by default.
+* `ring.middleware.flash`: Adds flash message support to sessions.
 * `ring.util.response`: Generate Ring responses.
 
 ### ring-devel
@@ -111,9 +112,17 @@ To see a more sophisticated Ring app, run:
 
 * `ring.adapter.httpcore`: Adapter for the Apache HttpCore webserver. 
 
+    [ring/ring-core "0.2.5"]
+
+To include all of them, add:
+
+    [ring/ring "0.2.5"]
+
 ## Development
 
-Ring is being actively developed; you can track its progress and contribute at the project's [GitHub page](http://github.com/mmcgrana/ring) and [Google Group](http://groups.google.com/group/ring-clojure).
+Ring is being actively developed; you can track its progress on the [GitHub page](http://github.com/mmcgrana/ring) page and on the [Google Group](http://groups.google.com/group/ring-clojure).
+
+To submit a patch, please post your corresponding GitHub branch to the Ring Google Group. This allows your changes to be seen and discussed by all Ring developers. If you are attempting something substantial, consider posting to the Google Group first with your idea.
 
 To run the Ring unit tests, first navigate to the appropriate project and then:
 

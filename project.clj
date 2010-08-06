@@ -1,13 +1,14 @@
-(defproject ring-gae "0.2.0"
-  :description "A Clojure web applications library adapted for Google AppEngine. See  http://github.com/mmcgrana/ring for original and http://github.com/jeandenis/ring for GAE compatible version."
+(defproject ring "0.2.5"
+  :description "A Clojure web applications library adapted for Google AppEngine."
+  :url "http://github.com/maravillas/ring"
   :dependencies
-    [[ring-gae/ring-core-gae "0.2.0"]
-     [ring-gae/ring-devel-gae "0.2.0"]
-     [ring-gae/ring-httpcore-adapter-gae "0.2.0"]
-     [ring-gae/ring-jetty-adapter-gae "0.2.0"]
-     [ring-gae/ring-servlet-gae "0.2.0"]]
+    [[org.maravillas/ring-core "0.2.5"]
+     [org.maravillas/ring-devel "0.2.5"]
+     [org.maravillas/ring-httpcore-adapter "0.2.5"]
+     [org.maravillas/ring-jetty-adapter "0.2.5"]
+     [org.maravillas/ring-servlet "0.2.5"]]
   :dev-dependencies
-    [[autodoc "0.7.0"]
+    [[autodoc "0.7.1"]
      [lein-clojars "0.5.0"]]
   :autodoc
     {:name "Ring (adapted for GAE)"
