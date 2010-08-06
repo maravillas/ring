@@ -1,4 +1,4 @@
-(defproject org.maravillas/ring-core-gae "0.2.5"
+(defproject org.clojars.maravillas/ring-core-gae "0.2.5"
   :description "Ring core libraries adapted for Google AppEngine."
   :url "http://github.com/maravillas/ring"
   :dependencies [[org.clojure/clojure "1.1.0"]
